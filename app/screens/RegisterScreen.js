@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Yup from 'yup';
+import Toast from 'react-native-simple-toast';
 
 import { AppForm, AppFormField, AppFormSubmitBtn } from '../components/form';
 import AppLink from '../components/AppLink';
@@ -21,7 +22,9 @@ export default function RegisterScreen({ navigation }) {
             <LogoContainer />
             <AppForm
                 initialValues={{ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' }}
-                onSubmit={values => console.log(values)}
+                onSubmit={values => {
+                    Toast.show(`Hello ${values['firstName']} ${values['lastName']}, you can now login`);
+                }}
                 validationSchema={validationSchema}>
                 <AppFormField
                     autoCorrect={false}
