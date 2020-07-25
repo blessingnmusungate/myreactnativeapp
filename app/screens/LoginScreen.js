@@ -1,46 +1,52 @@
 import React from 'react';
-import { StyleSheet, View, TextInput, Text } from 'react-native';
+import * as Yup from 'yup';
+
 import AppText from '../components/AppText';
-import AppTextInput from '../components/AppTextInput';
+import { AppForm, AppFormField, AppFormSubmitBtn } from '../components/form';
 import AppButton from '../components/AppButton';
+import AppLink from '../components/AppLink';
+import LogoContainer from '../components/LogoContainer';
+import Screen from '../components/Screen';
+
+const validationSchema = Yup.object().shape(
+    {
+        email: Yup.string().required().email().label('Email'),
+        password: Yup.string().required().label('Password')
+    }
+);
 
 export default function LoginScreen({ navigation }) {
     return (
-        <View style={styles.loginContainer}>
-            <AppText otherStyles={styles.header}>Log in</AppText>
-            <AppTextInput
-                autoCapitalize="none"
-                autoCorrect={false}
-                keyboardType="email-address"
-                placeholder="Email address"
-                icon="email"
-            />
-            <AppTextInput
-                autoCapitalize="none"
-                autoCorrect={false}
-                secureTextEntry={true}
-                placeholder="Password"
-                icon="lock"
-            />
-            <AppButton title="Login" onPress={() => navigation.navigate('Home')} />
-        </View>
+        <Screen>
+            <LogoContainer />
+            <AppForm
+                initialValues={{ email: '', password: '' }}
+                onSubmit={values => navigation.navigate('Home', {
+                    email: values["email"]
+                })}
+                validationSchema={validationSchema}
+            >
+                <AppFormField
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    icon="email"
+                    keyboardType="email-address"
+                    name="email"
+                    placeholder="Email address"
+                />
+                <AppFormField
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    icon="lock"
+                    name="password"
+                    placeholder="Password"
+                    secureTextEntry={true}
+                />
+                <AppFormSubmitBtn title="Login" />
+            </AppForm>
+            <AppLink text='Forgot password?' onPress={() => console.log('Forgot password clicked')} />
+            <AppText>OR</AppText>
+            <AppButton title='Create an Account' color='secondary' onPress={() => navigation.navigate('Register')} />
+        </Screen>
     );
 }
-
-const styles = StyleSheet.create({
-    loginContainer: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 15
-    },
-    header: {
-        fontWeight: "bold",
-        fontSize: 22,
-    },
-    textInput: {
-        borderBottomColor: '#ccc',
-        borderBottomWidth: 2,
-    }
-});

@@ -3,7 +3,7 @@ export default {
     white: '#fff',
     primary: 'blue',
     secondary: 'deepskyblue',
-    light: 'lightgray',
+    light: 'gainsboro',
     medium: 'gray',
     dark: '#0c0c0c'
 }

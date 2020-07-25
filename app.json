@@ -4,12 +4,7 @@
     "slug": "um-reactnative",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./app/assets/icon.png",
-    "splash": {
-      "image": "./app/assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+    "icon": "./app/assets/img/icon.png",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -17,10 +12,21 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "splash": {
+        "image": "./app/assets/img/splash/splash.png",
+        "resizeMode": "cover"
+      },
+      "bundleIdentifier": "org.markup.exp"
     },
-    "web": {
-      "favicon": "./app/assets/favicon.png"
+    "android": {
+      "splash": {
+        "mdpi": "./app/assets/img/splash/splash-mdpi.png",
+        "hdpi": "./app/assets/img/splash/splash-hdpi.png",
+        "xhdpi": "./app/assets/img/splash/splash-xhdpi.png",
+        "xxhdpi": "./app/assets/img/splash/splash-xxhdpi.png",
+        "resizeMode": "cover"
+      },
+      "package": "org.markup.exp"
     }
   }
 }

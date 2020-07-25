@@ -1,50 +1,68 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import * as Yup from 'yup';
 
-import AppTextInput from '../components/AppTextInput';
-import AppButton from '../components/AppButton';
-import AppText from '../components/AppText';
+import { AppForm, AppFormField, AppFormSubmitBtn } from '../components/form';
+import AppLink from '../components/AppLink';
+import LogoContainer from '../components/LogoContainer';
+import Screen from '../components/Screen';
 
-
+const validationSchema = Yup.object().shape(
+    {
+        firstName: Yup.string().required().label('First Name'),
+        lastName: Yup.string().required().label('Last Name'),
+        email: Yup.string().required().email().label('Email'),
+        password: Yup.string().required().min(4).label('Password'),
+        confirmPassword: Yup.string().required().label('Confirm Password').oneOf([Yup.ref('password'), null], 'Passwords must match')
+    }
+);
 export default function RegisterScreen({ navigation }) {
     return (
-        <View style={styles.registerContainer}>
-            <AppText otherStyles={styles.header}>Create an Account</AppText>
-            <AppTextInput
-                autoCorrect={false}
-                placeholder="First Name"
-            />
-            <AppTextInput
-                autoCorrect={false}
-                placeholder="Last Name"
-            />
-            <AppTextInput
-                autoCapitalize="none"
-                autoCorrect={false}
-                keyboardType="email-address"
-                placeholder="Email address"
-            />
-            <AppTextInput
-                autoCapitalize="none"
-                autoCorrect={false}
-                secureTextEntry={true}
-                placeholder="Password"
-            />
-            <AppButton title="Sign Up" onPress={() => navigation.navigate('Login')} />
-        </View>
+        <Screen>
+            <LogoContainer />
+            <AppForm
+                initialValues={{ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' }}
+                onSubmit={values => console.log(values)}
+                validationSchema={validationSchema}>
+                <AppFormField
+                    autoCorrect={false}
+                    icon="account"
+                    name="firstName"
+                    placeholder="First Name"
+                />
+                <AppFormField
+                    autoCorrect={false}
+                    icon="account"
+                    name="lastName"
+                    placeholder="Last Name"
+                />
+                <AppFormField
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    icon="email"
+                    keyboardType="email-address"
+                    name="email"
+                    placeholder="Email Address"
+                />
+                <AppFormField
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    icon="lock"
+                    placeholder="Password"
+                    name="password"
+                    secureTextEntry={true}
+
+                />
+                <AppFormField
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    icon="lock"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    secureTextEntry={true}
+                />
+                <AppFormSubmitBtn title="Sign Up" />
+            </AppForm>
+            <AppLink text='Already have an account? Login' onPress={() => navigation.navigate('Login')} />
+        </Screen>
     )
 }
-
-const styles = StyleSheet.create({
-    header: {
-        fontWeight: "bold",
-        fontSize: 22,
-    },
-    registerContainer: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 15
-    }
-})
