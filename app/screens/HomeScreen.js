@@ -1,27 +1,25 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import AppText from '../components/AppText';
 import AppButton from '../components/AppButton';
+import Screen from '../components/Screen';
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen({ route, navigation }) {
+    const { email } = route.params;
+
     return (
-        <View style={styles.container}>
-            <AppText style={styles.header}>Welcome back!</AppText>
-            <AppButton title='Logout' color='secondary' onPress={() => navigation.navigate('Login')}>Log out</AppButton>
-        </View>
+        <Screen>
+            <AppText otherStyles={styles.header}>Welcome user!</AppText>
+            <AppText>Your email address is {email}</AppText>
+            <AppButton title='Logout' color='secondary' onPress={() => navigation.navigate('Login')} />
+        </Screen>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 15
-    },
     header: {
-        fontWeight: "bold",
-        fontSize: 22,
-    },
+        fontWeight: 'bold',
+        fontSize: 22
+    }
 })
