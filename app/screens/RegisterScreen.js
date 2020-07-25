@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 
 import { AppForm, AppFormField, AppFormSubmitBtn } from '../components/form';
 import AppLink from '../components/AppLink';
-import LogoContainer from '../components/LogoContainer';
+import LogoContainer from '../components/logo/LogoContainer';
 import Screen from '../components/Screen';
 
 const validationSchema = Yup.object().shape(

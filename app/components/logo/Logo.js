@@ -1,11 +1,11 @@
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 
-import colors from '../config/colors';
+import colors from '../../config/colors';
 
 export default function Logo() {
     return (
-        <Image style={styles.logo} source={require('../assets/img/icon.png')} />
+        <Image style={styles.logo} source={require('../../assets/img/icon.png')} />
     )
 }
 

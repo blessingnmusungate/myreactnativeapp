@@ -5,5 +5,6 @@ export default {
     secondary: 'deepskyblue',
     light: 'gainsboro',
     medium: 'gray',
-    dark: '#0c0c0c'
+    dark: '#0c0c0c',
+    danger: 'tomato'
 }
