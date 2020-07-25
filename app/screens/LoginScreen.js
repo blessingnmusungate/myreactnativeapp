@@ -1,11 +1,12 @@
 import React from 'react';
 import * as Yup from 'yup';
+import Toast from 'react-native-simple-toast';
 
 import AppText from '../components/AppText';
 import { AppForm, AppFormField, AppFormSubmitBtn } from '../components/form';
 import AppButton from '../components/AppButton';
 import AppLink from '../components/AppLink';
-import LogoContainer from '../components/LogoContainer';
+import LogoContainer from '../components/logo/LogoContainer';
 import Screen from '../components/Screen';
 
 const validationSchema = Yup.object().shape(
@@ -44,7 +45,7 @@ export default function LoginScreen({ navigation }) {
                 />
                 <AppFormSubmitBtn title="Login" />
             </AppForm>
-            <AppLink text='Forgot password?' onPress={() => console.log('Forgot password clicked')} />
+            <AppLink text='Forgot password?' onPress={() => Toast.show('Forgot password clicked')} />
             <AppText>OR</AppText>
             <AppButton title='Create an Account' color='secondary' onPress={() => navigation.navigate('Register')} />
         </Screen>

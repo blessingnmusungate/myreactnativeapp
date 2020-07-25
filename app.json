@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "um-reactnative",
-    "slug": "um-reactnative",
+    "name": "VarsityApp",
+    "slug": "varsity-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/img/icon.png",

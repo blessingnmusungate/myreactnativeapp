@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Logo from './Logo';
-import AppText from './AppText';
+import AppText from '../AppText';
 
 export default function LogoContainer() {
     return (
