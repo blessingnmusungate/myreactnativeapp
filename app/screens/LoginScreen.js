@@ -1,6 +1,5 @@
 import React from 'react';
 import * as Yup from 'yup';
-import Toast from 'react-native-simple-toast';
 
 import AppText from '../components/AppText';
 import { AppForm, AppFormField, AppFormSubmitBtn } from '../components/form';
@@ -45,7 +44,7 @@ export default function LoginScreen({ navigation }) {
                 />
                 <AppFormSubmitBtn title="Login" />
             </AppForm>
-            <AppLink text='Forgot password?' onPress={() => Toast.show('Forgot password clicked')} />
+            <AppLink text='Forgot password?' onPress={() => alert('Forgot password clicked')} />
             <AppText>OR</AppText>
             <AppButton title='Create an Account' color='secondary' onPress={() => navigation.navigate('Register')} />
         </Screen>

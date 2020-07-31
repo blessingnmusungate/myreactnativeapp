@@ -27,6 +27,7 @@
         "resizeMode": "cover"
       },
       "package": "org.markup.exp"
-    }
+    },
+    "description": "VarsityApp - An application that helps university students get their university and bank details in sync."
   }
 }

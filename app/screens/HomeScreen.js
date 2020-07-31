@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import Toast from 'react-native-simple-toast';
 
 import AppText from '../components/AppText';
 import AppButton from '../components/AppButton';
@@ -16,10 +15,10 @@ export default function HomeScreen({ route, navigation }) {
             <AppText otherStyles={styles.header}>Welcome user!</AppText>
             <AppText>Your email address is {email}</AppText>
             <View style={styles.actionList}>
-                <AppActionLink text='Transactions' icon='bank-transfer' onPress={() => Toast.show('Transations option pressed')} />
-                <AppActionLink text='Useful Information' icon='information' onPress={() => Toast.show('Information option pressed')} />
-                <AppActionLink text='News' icon='newspaper' onPress={() => Toast.show('News option pressed')} />
-                <AppActionLink text='My Profile' icon='account' onPress={() => Toast.show('My Profile option pressed')} />
+                <AppActionLink text='Transactions' icon='bank-transfer' onPress={() => alert('Transations option pressed')} />
+                <AppActionLink text='Useful Information' icon='information' onPress={() => alert('Information option pressed')} />
+                <AppActionLink text='News' icon='newspaper' onPress={() => alert('News option pressed')} />
+                <AppActionLink text='My Profile' icon='account' onPress={() => alert('My Profile option pressed')} />
             </View>
             <AppButton title='Logout' color='secondary' onPress={() => navigation.navigate('Login')} />
         </Screen>
