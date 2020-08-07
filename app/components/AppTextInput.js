@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     textInput: {
         color: colors.dark,
         height: 20,
+        width: '100%',
         fontSize: 18,
         fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir"
     }

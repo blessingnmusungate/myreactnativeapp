@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import * as Yup from 'yup';
 
 import { AppForm, AppFormField, AppFormSubmitBtn } from '../components/form';
@@ -18,53 +19,66 @@ const validationSchema = Yup.object().shape(
 export default function RegisterScreen({ navigation }) {
     return (
         <Screen>
-            <LogoContainer />
-            <AppForm
-                initialValues={{ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' }}
-                onSubmit={values => {
-                    alert(`Hello ${values['firstName']} ${values['lastName']}, you can now login`);
-                }}
-                validationSchema={validationSchema}>
-                <AppFormField
-                    autoCorrect={false}
-                    icon="account"
-                    name="firstName"
-                    placeholder="First Name"
-                />
-                <AppFormField
-                    autoCorrect={false}
-                    icon="account"
-                    name="lastName"
-                    placeholder="Last Name"
-                />
-                <AppFormField
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    icon="email"
-                    keyboardType="email-address"
-                    name="email"
-                    placeholder="Email Address"
-                />
-                <AppFormField
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    icon="lock"
-                    placeholder="Password"
-                    name="password"
-                    secureTextEntry={true}
+            <ScrollView style={{ flex: 1, width: '100%' }}>
 
-                />
-                <AppFormField
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    icon="lock"
-                    name="confirmPassword"
-                    placeholder="Confirm Password"
-                    secureTextEntry={true}
-                />
-                <AppFormSubmitBtn title="Sign Up" />
-            </AppForm>
-            <AppLink text='Already have an account? Login' onPress={() => navigation.navigate('Login')} />
+                <View style={styles.registerContainer}>
+                    <LogoContainer />
+                    <AppForm
+                        initialValues={{ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' }}
+                        onSubmit={values => {
+                            alert(`Hello ${values['firstName']} ${values['lastName']}, you can now login`);
+                        }}
+                        validationSchema={validationSchema}>
+                        <AppFormField
+                            autoCorrect={false}
+                            icon="account"
+                            name="firstName"
+                            placeholder="First Name"
+                        />
+                        <AppFormField
+                            autoCorrect={false}
+                            icon="account"
+                            name="lastName"
+                            placeholder="Last Name"
+                        />
+                        <AppFormField
+                            autoCapitalize="none"
+                            autoCorrect={false}
+                            icon="email"
+                            keyboardType="email-address"
+                            name="email"
+                            placeholder="Email Address"
+                        />
+                        <AppFormField
+                            autoCapitalize="none"
+                            autoCorrect={false}
+                            icon="lock"
+                            placeholder="Password"
+                            name="password"
+                            secureTextEntry={true}
+
+                        />
+                        <AppFormField
+                            autoCapitalize="none"
+                            autoCorrect={false}
+                            icon="lock"
+                            name="confirmPassword"
+                            placeholder="Confirm Password"
+                            secureTextEntry={true}
+                        />
+                        <AppFormSubmitBtn title="Sign Up" />
+                    </AppForm>
+                    <AppLink text='Already have an account? Login' onPress={() => navigation.navigate('Login')} />
+                </View>
+            </ScrollView>
         </Screen>
     )
 }
+
+const styles = StyleSheet.create({
+    registerContainer: {
+        flex: 1,
+        width: '100%',
+        marginTop: 50
+    }
+})
