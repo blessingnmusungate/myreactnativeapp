@@ -5,13 +5,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 import LoginScreen from './app/screens/LoginScreen';
-import AppText from './app/components/AppText';
-import AppButton from './app/components/AppButton';
 import WelcomeScreen from './app/screens/WelcomeScreen';
-import AppTextInput from './app/components/AppTextInput';
-import Screen from './app/components/Screen';
 import RegisterScreen from './app/screens/RegisterScreen';
 import HomeScreen from './app/screens/HomeScreen';
+import MyProfileScreen from './app/screens/MyProfileScreen';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -27,6 +24,7 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Profile" component={MyProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
 
