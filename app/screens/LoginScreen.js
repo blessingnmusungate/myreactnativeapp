@@ -16,16 +16,26 @@ const validationSchema = Yup.object().shape(
     }
 );
 
-export default function LoginScreen({ navigation }) {
+export default function LoginScreen({ route, navigation }) {
+    function handleLogin(values) {
+        const { user } = route.params;
+        if (values.email === user.email && values.password === user.password) {
+            navigation.navigate('Home', {
+                user: user
+            });
+        }
+        else {
+            alert('You have entered an invalid email address or password')
+        }
+    }
+
     return (
         <Screen>
             <View style={styles.loginContainer}>
                 <LogoContainer />
                 <AppForm
                     initialValues={{ email: '', password: '' }}
-                    onSubmit={values => navigation.navigate('Home', {
-                        email: values["email"]
-                    })}
+                    onSubmit={values => handleLogin(values)}
                     validationSchema={validationSchema}
                 >
                     <AppFormField

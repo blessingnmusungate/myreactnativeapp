@@ -8,17 +8,18 @@ import AppActionLink from '../components/AppActionLink';
 import colors from '../config/colors';
 
 export default function HomeScreen({ route, navigation }) {
-    const { email } = route.params;
+    const { user } = route.params;
 
     return (
         <Screen>
-            <AppText otherStyles={styles.header}>Welcome user!</AppText>
-            <AppText>Your email address is {email}</AppText>
+            <AppText otherStyles={styles.header}>Welcome {user.firstName} {user.lastName}!</AppText>
             <View style={styles.actionList}>
                 <AppActionLink text='Transactions' icon='bank-transfer' onPress={() => alert('Transations option pressed')} />
                 <AppActionLink text='Useful Information' icon='information' onPress={() => alert('Information option pressed')} />
                 <AppActionLink text='News' icon='newspaper' onPress={() => alert('News option pressed')} />
-                <AppActionLink text='My Profile' icon='account' onPress={() => alert('My Profile option pressed')} />
+                <AppActionLink text='My Profile' icon='account' onPress={() => navigation.navigate('Profile', {
+                    user: user
+                })} />
             </View>
             <AppButton title='Logout' color='secondary' onPress={() => navigation.navigate('Login')} />
         </Screen>
