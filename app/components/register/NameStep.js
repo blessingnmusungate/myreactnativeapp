@@ -3,11 +3,14 @@ import * as Yup from 'yup';
 
 import { AppFormField } from '../form';
 import AppHeader from '../AppHeader';
+import SectionHeading from './SectionHeading';
+import { Text } from 'react-native';
+import AppText from '../AppText';
 
 const NameStepComponent = () => {
     return (
         <>
-            <AppHeader>Name Information</AppHeader>
+            <SectionHeading>Name Information</SectionHeading>
             <AppFormField
                 autoCorrect={false}
                 name="firstName"

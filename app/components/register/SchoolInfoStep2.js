@@ -2,12 +2,12 @@ import React from 'react';
 import * as Yup from 'yup';
 
 import { AppFormField } from '../form';
-import AppHeader from '../AppHeader';
+import SectionHeading from './SectionHeading';
 
 const SchoolInfo2Component = (props) => {
     return (
         <>
-            <AppHeader>School Information (2)</AppHeader>
+            <SectionHeading>University Information (ii)</SectionHeading>
             <AppFormField
                 name="facultyName"
                 label="Faculty Name"

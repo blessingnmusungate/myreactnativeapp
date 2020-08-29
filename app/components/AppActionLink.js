@@ -17,10 +17,10 @@ export default function AppActionLink({ text, icon, onPress }) {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        marginVertical: 5,
+        marginVertical: 12.5,
         padding: 10,
         backgroundColor: colors.primary,
-        borderRadius: 10
+        borderRadius: 15
     },
     icon: {
         marginRight: 10

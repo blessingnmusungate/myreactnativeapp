@@ -6,7 +6,7 @@ import colors from '../config/colors';
 export default function Screen({ children }) {
     return (
         <View style={styles.container}>
-            <StatusBar backgroundColor="blue" />
+            <StatusBar backgroundColor={colors.primary} />
             <View style={styles.screen}>
                 {children}
             </View>

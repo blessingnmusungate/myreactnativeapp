@@ -2,20 +2,15 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import AppText from './AppText';
 
-export default function AppHeader({ children, large }) {
+export default function AppHeader({ children, otherStyles }) {
     return (
-        <AppText otherStyles={large ? styles.headerLarge : styles.headerNormal}>{children}</AppText>
+        <AppText otherStyles={[styles.header, otherStyles]}>{children}</AppText>
     )
 }
 
 const styles = StyleSheet.create({
-    headerNormal: {
+    header: {
         fontSize: 20,
         fontWeight: 'bold'
-    },
-    headerLarge: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 5
     }
 })

@@ -8,6 +8,7 @@ import AppButton from '../components/AppButton';
 import AppLink from '../components/AppLink';
 import LogoContainer from '../components/logo/LogoContainer';
 import Screen from '../components/Screen';
+import colors from '../config/colors';
 
 const validationSchema = Yup.object().shape(
     {
@@ -58,7 +59,7 @@ export default function LoginScreen({ route, navigation }) {
                 </AppForm>
                 <AppLink text='Forgot password?' onPress={() => alert('Forgot password clicked')} />
                 <AppText>OR</AppText>
-                <AppButton title='Create an Account' color='secondary' onPress={() => navigation.navigate('Register')} />
+                <AppButton title='Create an Account' otherStyles={styles.secondaryBtn} onPress={() => navigation.navigate('Register')} />
             </View>
         </Screen>
     );
@@ -69,5 +70,8 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         marginTop: 50
+    },
+    secondaryBtn: {
+        backgroundColor: colors.secondary,
     }
 })

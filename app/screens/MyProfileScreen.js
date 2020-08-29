@@ -8,22 +8,22 @@ import AppButton from '../components/AppButton';
 
 export default function MyProfileScreen({ route, navigation }) {
     const { user } = route.params;
-    /* const user = {
-         firstName: "Blessing",
-         middleName: "Ngonidzashe",
-         lastName: "Musungate",
-         personalAddress: "Buca",
-         phoneNumber: "1234",
-         email: "bnmusungate@gmail.com",
-         password: "1234",
-         universityName: "Dokuz Eylul University",
-         universityAddress: "Buca",
-         studentNumber: "111",
-         facultyName: "Engineering",
-         programName: "Computer Engineering",
-         programStart: "2015",
-         programEnd: "2019"
-     }*/
+  /*  const user = {
+        firstName: "Blessing",
+        middleName: "Ngonidzashe",
+        lastName: "Musungate",
+        personalAddress: "Buca",
+        phoneNumber: "1234",
+        email: "bnmusungate@gmail.com",
+        password: "1234",
+        universityName: "Dokuz Eylul University",
+        universityAddress: "Buca",
+        studentNumber: "111",
+        facultyName: "Engineering",
+        programName: "Computer Engineering",
+        programStart: "2015",
+        programEnd: "2019"
+    }*/
 
     const data = [
         {
@@ -59,7 +59,7 @@ export default function MyProfileScreen({ route, navigation }) {
     const renderSection = ({ item }) => {
         return (
             <View style={styles.sectionContainer}>
-                <AppHeader>{item.title}</AppHeader>
+                <AppHeader otherStyles={styles.sectionTitle}>{item.title}</AppHeader>
                 <View>
                     {
                         Object.keys(item.fields).map(key => {
@@ -78,7 +78,7 @@ export default function MyProfileScreen({ route, navigation }) {
     return (
         <Screen>
             <View style={styles.mainContainer}>
-                <AppHeader>My Profile</AppHeader>
+                <AppHeader otherStyles={styles.mainHeader}>My Profile</AppHeader>
                 <FlatList
                     style={styles.flatList}
                     data={data}
@@ -100,6 +100,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: 30
     },
+    mainHeader: {
+        color: colors.gold,
+    },
     flatList: {
         marginTop: 30,
         /* borderColor: "yellow",
@@ -109,10 +112,10 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     fieldContainer: {
-        flexDirection: "row"
+        flexDirection: "row",
     },
     sectionTitle: {
-        fontStyle: "italic"
+        color: colors.primary
     },
     sectionContainer: {
         marginBottom: 10,

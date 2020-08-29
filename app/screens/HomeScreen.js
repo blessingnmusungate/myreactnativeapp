@@ -12,29 +12,43 @@ export default function HomeScreen({ route, navigation }) {
 
     return (
         <Screen>
-            <AppText otherStyles={styles.header}>Welcome {user.firstName} {user.lastName}!</AppText>
-            <View style={styles.actionList}>
-                <AppActionLink text='Transactions' icon='bank-transfer' onPress={() => alert('Transations option pressed')} />
-                <AppActionLink text='Useful Information' icon='information' onPress={() => alert('Information option pressed')} />
-                <AppActionLink text='News' icon='newspaper' onPress={() => alert('News option pressed')} />
-                <AppActionLink text='My Profile' icon='account' onPress={() => navigation.navigate('Profile', {
-                    user: user
-                })} />
+            <View style={styles.container}>
+                <AppText otherStyles={styles.header}>Welcome {user.firstName}!</AppText>
+                <View style={styles.actionList}>
+                    <AppActionLink text='Transactions' icon='arrow-up-down-bold' onPress={() => alert('Transations option pressed')} />
+                    <AppActionLink text='Useful Information' icon='information' onPress={() => alert('Information option pressed')} />
+                    <AppActionLink text='My Profile' icon='account' onPress={() => navigation.navigate('Profile', {
+                        user: user
+                    })} />
+                </View>
+                <AppButton title='Logout' otherStyles={styles.logoutBtn} onPress={() => navigation.navigate('Login')} />
             </View>
-            <AppButton title='Logout' color='secondary' onPress={() => navigation.navigate('Login')} />
         </Screen>
     )
 }
 
 const styles = StyleSheet.create({
     actionList: {
-        marginVertical: 10,
-        backgroundColor: colors.light,
-        padding: 5,
         width: '100%'
     },
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignContent: "center",
+        paddingHorizontal: 25,
+        width: "100%"
+    },
     header: {
+        color: colors.gold,
         fontWeight: 'bold',
-        fontSize: 22
+        fontSize: 22,
+        textAlign: "center",
+        marginBottom: 50
+    },
+    logoutBtn: {
+        backgroundColor: colors.gold,
+        borderRadius: 15,
+        marginTop: 50,
+        padding: 10
     }
 })

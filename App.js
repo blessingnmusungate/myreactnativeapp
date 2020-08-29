@@ -5,7 +5,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 import LoginScreen from './app/screens/LoginScreen';
-import WelcomeScreen from './app/screens/WelcomeScreen';
 import RegisterScreen from './app/screens/RegisterScreen';
 import HomeScreen from './app/screens/HomeScreen';
 import MyProfileScreen from './app/screens/MyProfileScreen';
@@ -20,7 +19,6 @@ export default function App() {
         }
         }
         initialRouteName="Login">
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />

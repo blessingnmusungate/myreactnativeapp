@@ -5,16 +5,16 @@ import colors from '../../config/colors';
 
 export default function Logo() {
     return (
-        <Image style={styles.logo} source={require('../../assets/img/icon.png')} />
+        <Image style={styles.logo} source={require('../../assets/img/logo.png')} />
     )
 }
 
 const styles = StyleSheet.create({
     logo: {
-        width: 70,
-        height: 70,
-        borderWidth: 5,
+        width: 80,
+        height: 80,
+        borderWidth: 2.5,
         borderColor: colors.medium,
-        borderRadius: 35
+        borderRadius: 40
     }
 })

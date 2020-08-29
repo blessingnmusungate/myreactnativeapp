@@ -14,6 +14,6 @@ export default function AppLink({ text, onPress }) {
 
 const styles = StyleSheet.create({
     link: {
-        color: colors.primary,
+        color: colors.gold,
     }
 })

@@ -3,11 +3,12 @@ import * as Yup from 'yup';
 
 import { AppFormField } from '../form';
 import AppHeader from '../AppHeader';
+import SectionHeading from './SectionHeading';
 
 const SchoolInfo1Component = (props) => {
     return (
         <>
-            <AppHeader>School Information (1)</AppHeader>
+            <SectionHeading>University Information (i)</SectionHeading>
             <AppFormField
                 name="universityName"
                 label="University Name"
@@ -21,6 +22,11 @@ const SchoolInfo1Component = (props) => {
             <AppFormField
                 name="studentNumber"
                 label="Student Number"
+
+            />
+            <AppFormField
+                name="documents"
+                label="Support Documents (*to be done)"
 
             />
 

@@ -3,11 +3,12 @@ import * as Yup from 'yup';
 
 import { AppFormField } from '../form';
 import AppHeader from '../AppHeader';
+import SectionHeading from './SectionHeading';
 
 const ContactPasswordComponent = () => {
     return (
         <>
-            <AppHeader>Contact Info and Password</AppHeader>
+            <SectionHeading>Contact Info &amp; Password</SectionHeading>
             <AppFormField
                 autoCapitalize="none"
                 autoCorrect={false}

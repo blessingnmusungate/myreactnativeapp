@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
     field: {
         justifyContent: 'flex-start',
         width: '100%',
-        padding: 5
+        padding: 5,
+        paddingHorizontal: 0
     },
     textInputContainer: {
         marginVertical: 0
